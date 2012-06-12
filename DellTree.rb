@@ -69,7 +69,9 @@ module DellTree
 		if $shrink_range.empty?
 			$shrink_Range = (4..6).to_a
 		end
-		$trunk = (175..250).to_a
+		if $shrink_range.empty?
+			$trunk = (175..250).to_a
+		end
 		
 		@max_splits = $split_range[0]
 		@shrink     = "0.#{$shrink_range[0]}".to_f
@@ -142,7 +144,7 @@ module DellTree
 		
 		self.caption = "Dell Recursion Tree"
 
-		@text = Gosu::Font.new(self, 'media/comic.ttf', 10)
+		@text = Gosu::Font.new(self, 'comic.ttf', 10)
 	  end
 	  
 	  def update
@@ -191,15 +193,23 @@ module DellTree
 			@tree.custom_tree
 		 end
 		 if button_down? Gosu::KbF4
-			$shrink_range[0] = $shrink_range[0] + 1
+			$shrink_range[0] = $shrink_range[0] - 1
 			$shrink_range[1] = $shrink_range[0]
 			$shrink_range[2] = $shrink_range[0]
 			@tree.custom_tree
 		 end
 		 if button_down? Gosu::KbF5
-			$shrink_range[0] = $shrink_range[0] + 1
-			$shrink_range[1] = $shrink_range[0]
-			$shrink_range[2] = $shrink_range[0]
+			trunk_start = $trunk[0] - 10
+			$trunk.clear
+			$trunk[0] = trunk_start
+			$trunk[1] = trunk_start
+			@tree.custom_tree
+		 end
+		 if button_down? Gosu::KbF6
+			trunk_start = $trunk[0] + 10
+			$trunk.clear
+			$trunk[0] = trunk_start
+			$trunk[1] = trunk_start
 			@tree.custom_tree
 		 end
 	   end
