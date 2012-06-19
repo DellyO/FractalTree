@@ -177,6 +177,9 @@ module DellTree
 		@text.draw("Press F3/F4 to decrease/increase the size of a branch compared to its previous branch", 10, 60, 1, 1.5, 1.5, 0xFF000000)
 		@text.draw("Press F5/F6 to decrease/increase the length of the trunk", 10, 70, 1, 1.5, 1.5, 0xFF000000)		
 		@text.draw("F-Keys will update tree automatically, after moving the mouse press C again to update", 10, 80, 1, 1.5, 1.5, 0xFF000000)
+		@text.draw("Press Esc to exit", 10, 90, 1, 1.5, 1.5, 0xFF000000)
+		
+		@text.draw("Warning: push buttons slowly... has a tendency to freeze", 10, 150, 1, 1.5, 1.5, 0xFF000000)
 		#output the current parameters
 		@text.draw("Current Tree Parameters:", 10, 300, 1, 1.5, 1.5, 0xFF000000)	
 		@text.draw("Number of splits: #{$num_splits}", 10, 310, 1, 1.5, 1.5, 0xFF000000)
@@ -184,6 +187,8 @@ module DellTree
 		@text.draw("Shrink range: #{$shrink_range[0]} to #{$shrink_range[$shrink_range.length-1]}", 10, 330, 1, 1.5, 1.5, 0xFF000000)
 		@text.draw("Splits: #{$split_range}", 10, 340, 1, 1.5, 1.5, 0xFF000000)
 		@text.draw("Trunk length: #{$trunk[0]} to #{$trunk[$trunk.length-1]}", 10, 350, 1, 1.5, 1.5, 0xFF000000)
+		#sign
+		@text.draw("By Nathan Dell", 10, 580, 1, 1.5, 1.5, 0xFF000000)
 	  end
 	  
 	  #all the instructions for pressing different buttons
